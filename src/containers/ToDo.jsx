@@ -7,35 +7,54 @@ class Todo extends React.Component {
   constructor() {
     super();
     this.state = {
-      toDos: []
+      toDos: toDoData
     };
   }
 
-  componentWillMount() {
-    this.setState({
-      toDos: toDoData
-    });
-  }
+  // componentWillMount() {
+  //   this.setState({
+  //     toDos: toDoData
+  //   });
+  // }
 
-  handleDelete = x => {
-    console.log("jestem w top componencie, czas usunac");
-    console.log(x);
+  handleDelete = id => {
+    let toDos = this.state.toDos;
+    let filteredEl = toDos.filter(el => el.id !== id);
+
+    this.setState({
+      toDos: filteredEl
+    });
   };
 
   handleAddTodos(newToDos) {
-    console.log(newToDos);
-
     let addNewToDos = this.state.toDos;
     addNewToDos.push(newToDos);
     // console.log(this.state.toDos);
     this.setState({ toDos: this.state.toDos });
   }
+
+  handleEdit = (id, newContent) => {
+    let acceptEl = this.state.toDos.map(el => {
+      if (el.id === id) {
+        return { id, content: newContent };
+      } else {
+        return el;
+      }
+    });
+    this.setState({
+      toDos: acceptEl
+    });
+  };
   render() {
     return (
       <div className="main-holder">
         <ListForm addToDos={this.handleAddTodos.bind(this)} />
         <ul>
-          <ListContainer toDos={this.state.toDos} handleDelete={this.handleDelete} />
+          <ListContainer
+            toDos={this.state.toDos}
+            handleDelete={this.handleDelete}
+            handleEdit={this.handleEdit}
+          />
         </ul>
       </div>
     );

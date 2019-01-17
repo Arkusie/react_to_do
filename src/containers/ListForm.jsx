@@ -1,4 +1,5 @@
 import React from "react";
+import uuid from "uuid/v4";
 
 class ListForm extends React.Component {
   constructor() {
@@ -11,7 +12,10 @@ class ListForm extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
 
-    this.props.addToDos(this.state);
+    this.props.addToDos({
+      id: uuid(),
+      content: this.state.content
+    });
     this.setState({
       content: ""
     });
