@@ -5,19 +5,34 @@ body {
     "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; */
+  height: 100vh;
   font-family: monospace;
   color: aliceblue;
-  background-color: rgb(142, 198, 224);
+  background: linear-gradient(-45deg, #ee714b, #e95d93, #36b5e4, #3adab4);
+  background-size: 400% 400%;
+  animation: Gradient 15s ease infinite;
+}
+
+@keyframes Gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .main-holder {
-  margin: 15px auto;
-  padding: 20px;
+  margin: 10px auto;
+  padding: 5px;
   width: 90%;
-  max-width: 700px;
-  border: 7px solid rgb(48, 48, 48);
-  border-radius: 40px;
-  background-color: rgb(44, 44, 44);
+  max-width: 800px;
+  border: 2px solid rgb(81, 80, 128);
+  border-radius: 20px;
+  background-color: rgb(76, 75, 126);
 }
 
 code {
@@ -28,7 +43,8 @@ li {
   margin: 2px;
   padding: 5px;
   list-style: none;
-  background-color: rgb(50, 50, 50);
+  background-color: #eb8baf;
+  border-radius: 4px;
 }
 
 a {
@@ -46,6 +62,7 @@ a {
 input {
   margin: 10px;
   padding: 5px;
+  border-radius: 6px;
 }
 
 input[type="submit"] {
@@ -77,7 +94,9 @@ button {
   margin: 0 5px 0 0;
   background-color: rgb(255, 238, 206);
   border: none;
+  border-radius: 4px;
+  color: rgb(76, 75, 126);
 }
 button:hover {
-  background-color: coral;
+  background-color: rgb(157, 180, 255);
 }

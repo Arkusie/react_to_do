@@ -42,6 +42,7 @@ class ListItem extends React.Component {
   render() {
     return (
       <>
+        <Button onClick={this.deteleItem.bind(this)} text="X" />
         {!this.state.isEdited ? (
           <>
             <Button text="Edit" onClick={this.editItem} /> {this.props.toDo.content}
@@ -54,7 +55,6 @@ class ListItem extends React.Component {
           </>
         )}
 
-        <Button onClick={this.deteleItem.bind(this)} text="X" />
         <br />
       </>
     );
