@@ -45,11 +45,17 @@ class ListItem extends React.Component {
         <Button onClick={this.deteleItem.bind(this)} text="X" />
         {!this.state.isEdited ? (
           <>
-            <Button text="Edit" onClick={this.editItem} /> {this.props.toDo.content}
+            <Button text="Edit" onClick={this.editItem} />{" "}
+            {this.props.toDo.content}
           </>
         ) : (
           <>
-            <input name="content" value={this.state.content} onChange={this.handleChange} />
+            <input
+              className="edit_input"
+              name="content"
+              value={this.state.content}
+              onChange={this.handleChange}
+            />
             <Button text="accept" onClick={this.handleAccept} />
             <Button text="decline" onClick={this.handleDecline} />
           </>

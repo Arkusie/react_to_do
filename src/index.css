@@ -31,20 +31,30 @@ body {
   width: 90%;
   max-width: 800px;
   border: 2px solid rgb(81, 80, 128);
-  border-radius: 20px;
+  border-radius: 10px;
   background-color: rgb(76, 75, 126);
+  border-bottom: 4px solid rgb(67, 66, 114);
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+ul {
+  padding: 0;
 }
 
 li {
-  margin: 2px;
-  padding: 5px;
+  margin: 4px;
+  padding: 6px;
   list-style: none;
-  background-color: #eb8baf;
+  background-color: #e27aa0;
   border-radius: 4px;
+}
+
+li:hover {
+  background-color: #dd7198;
 }
 
 a {
@@ -58,27 +68,48 @@ a {
 /* a:hover {
   background-color: rgb(255, 127, 42);
   color: black; */
-
-input {
+.edit_input {
   margin: 10px;
+  width: calc(100% - 180px);
+  height: 25px;
+  text-align: center;
+}
+
+#content_input {
+  margin: 0 auto;
+  display: block;
   padding: 5px;
   border-radius: 6px;
+  width: 90%;
+  text-align: center;
 }
 
 input[type="submit"] {
-  background-color: #fff;
+  margin: 0 auto;
+  display: block;
+  padding: 5px 0;
+  width: 60%;
+  height: 30px;
+  /* background-color: rgb(197, 236, 205); */
   border: none;
-  margin: 10px 0;
-  letter-spacing: 5px;
-  position: relative;
-  left: 15px;
+  letter-spacing: 10px;
+  color: rgb(76, 75, 126);
+  font-weight: 700;
+
+  background: linear-gradient(-45deg, #ee714b, #e95d93, #36b5e4, #3adab4);
+  background-size: 200% 200%;
+  animation: Gradient 15s ease infinite;
+  transition: 200ms linear;
+  border-bottom: 2px solid rgb(46, 46, 46);
 }
 
 input[type="submit"]:hover {
+  box-sizing: border-box;
+
   background-color: rgb(255, 144, 144);
-}
-label {
-  margin: 20px;
+  border: 2px solid wheat;
+  transition: 200ms linear;
+  cursor: pointer;
 }
 
 select {
@@ -88,6 +119,7 @@ select {
 h3 {
   text-align: center;
   letter-spacing: 7px;
+  font-size: 20px;
 }
 
 button {
@@ -99,4 +131,11 @@ button {
 }
 button:hover {
   background-color: rgb(157, 180, 255);
+  transition: 100ms linear;
+}
+
+.label_elements {
+  padding: 5px;
+  box-sizing: border-box;
+  height: 90px;
 }

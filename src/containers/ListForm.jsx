@@ -33,11 +33,19 @@ class ListForm extends React.Component {
       <div>
         <h3>add new todo</h3>
         <form onSubmit={this.handleSubmit.bind(this)}>
-          <label>
-            what to do?
-            <input onChange={this.handleChange.bind(this)} name="content" value={this.state.content} />
-          </label>
-          <input type="submit" value="submit" />
+          <div className="label_elements">
+            <label>
+              <input
+                placeholder="what is there to do?"
+                id="content_input"
+                onChange={this.handleChange.bind(this)}
+                name="content"
+                value={this.state.content}
+              />
+            </label>
+            <br />
+            <input type="submit" value="submit" />
+          </div>
         </form>
       </div>
     );
