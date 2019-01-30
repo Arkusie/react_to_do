@@ -6,7 +6,7 @@ class ListItem extends React.Component {
     super(props);
     this.state = {
       isEdited: false,
-      content: props.toDo.content
+      title: props.toDo.title
     };
   }
   // conntent changed to title
@@ -29,11 +29,11 @@ class ListItem extends React.Component {
   handleDecline = () => {
     this.setState({
       isEdited: false,
-      content: this.props.toDo.content
+      title: this.props.toDo.title
     });
   };
   handleAccept = () => {
-    this.props.editItem(this.props.toDo.id, this.state.content);
+    this.props.editItem(this.props.toDo.id, this.state.title);
     this.setState({
       isEdited: false
     });
@@ -45,14 +45,14 @@ class ListItem extends React.Component {
         <Button onClick={this.deteleItem.bind(this)} text="X" />
         {!this.state.isEdited ? (
           <>
-            <Button text="Edit" onClick={this.editItem} /> {this.props.toDo.content}
+            <Button text="Edit" onClick={this.editItem} /> {this.props.toDo.title}
           </>
         ) : (
           <>
             <input
               className="edit_input"
-              name="content"
-              value={this.state.content}
+              name="title"
+              value={this.state.title}
               onChange={this.handleChange}
             />
             <Button text="accept" onClick={this.handleAccept} />

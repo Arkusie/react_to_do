@@ -5,7 +5,7 @@ class ListForm extends React.Component {
   constructor() {
     super();
     this.state = {
-      content: ""
+      title: ""
     };
   }
 
@@ -14,10 +14,10 @@ class ListForm extends React.Component {
 
     this.props.addToDos({
       id: uuid(),
-      content: this.state.content
+      title: this.state.title
     });
     this.setState({
-      content: ""
+      title: ""
     });
   }
 
@@ -25,7 +25,7 @@ class ListForm extends React.Component {
     this.setState({
       [event.target.name]: event.target.value
     });
-    // console.log(this.state.content);
+    // console.log(this.state.title);
   }
 
   render() {
@@ -39,8 +39,8 @@ class ListForm extends React.Component {
                 placeholder="what is there to do?"
                 id="content_input"
                 onChange={this.handleChange.bind(this)}
-                name="content"
-                value={this.state.content}
+                name="title"
+                value={this.state.title}
               />
             </label>
             <br />

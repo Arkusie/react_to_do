@@ -1,15 +1,15 @@
 const toDoData = [
   {
     id: 1,
-    content: "wake up"
+    title: "wake up"
   },
   {
     id: 2,
-    content: "eat"
+    title: "eat"
   },
   {
     id: 3,
-    content: "work out"
+    title: "work out"
   }
 ];
 

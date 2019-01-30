@@ -13,7 +13,6 @@ class Todo extends React.Component {
   }
 
   componentDidMount() {
-    let content;
     axios
       .get("http://195.181.210.249:3000/todo/")
       .then(response => response.data)
@@ -37,20 +36,23 @@ class Todo extends React.Component {
   handleAddTodos(newToDos) {
     let addNewToDos = this.state.toDos;
     addNewToDos.push(newToDos);
-    // axios.post("http://195.181.210.249:3000/todo/", {
-    //   title: newToDos.title
-    // });
-    // console.log(this.state.toDos);
+    axios.post("http://195.181.210.249:3000/todo/", {
+      title: newToDos.title,
+      author: "Areg"
+    });
     this.setState({ toDos: this.state.toDos });
   }
 
   handleEdit = (id, newContent) => {
     let acceptEl = this.state.toDos.map(el => {
       if (el.id === id) {
-        return { id, content: newContent };
+        return { id, title: newContent };
       } else {
         return el;
       }
+    });
+    axios.patch("http://195.181.210.249:3000/todo/" + id, {
+      title: newContent
     });
     this.setState({
       toDos: acceptEl
