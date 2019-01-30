@@ -9,7 +9,7 @@ class ListItem extends React.Component {
       content: props.toDo.content
     };
   }
-
+  // conntent changed to title
   deteleItem = () => {
     this.props.deteleItem(this.props.toDo.id);
   };
@@ -45,8 +45,7 @@ class ListItem extends React.Component {
         <Button onClick={this.deteleItem.bind(this)} text="X" />
         {!this.state.isEdited ? (
           <>
-            <Button text="Edit" onClick={this.editItem} />{" "}
-            {this.props.toDo.content}
+            <Button text="Edit" onClick={this.editItem} /> {this.props.toDo.content}
           </>
         ) : (
           <>

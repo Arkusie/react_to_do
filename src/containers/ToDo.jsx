@@ -2,6 +2,7 @@ import React from "react";
 import ListContainer from "./ListContainer";
 import ListForm from "./ListForm";
 import toDoData from "../Data/ToDosData";
+import axios from "axios";
 
 class Todo extends React.Component {
   constructor() {
@@ -11,11 +12,18 @@ class Todo extends React.Component {
     };
   }
 
-  // componentWillMount() {
-  //   this.setState({
-  //     toDos: toDoData
-  //   });
-  // }
+  componentDidMount() {
+    let content;
+    axios
+      .get("http://195.181.210.249:3000/todo/")
+      .then(response => response.data)
+
+      .then(data => {
+        this.setState({
+          toDos: data
+        });
+      });
+  }
 
   handleDelete = id => {
     let toDos = this.state.toDos;
@@ -29,6 +37,9 @@ class Todo extends React.Component {
   handleAddTodos(newToDos) {
     let addNewToDos = this.state.toDos;
     addNewToDos.push(newToDos);
+    // axios.post("http://195.181.210.249:3000/todo/", {
+    //   title: newToDos.title
+    // });
     // console.log(this.state.toDos);
     this.setState({ toDos: this.state.toDos });
   }
@@ -45,6 +56,7 @@ class Todo extends React.Component {
       toDos: acceptEl
     });
   };
+
   render() {
     return (
       <div className="main-holder">
