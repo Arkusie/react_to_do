@@ -11,8 +11,7 @@ class Todo extends React.Component {
       toDos: toDoData
     };
   }
-
-  componentDidMount() {
+  getData() {
     axios
       .get("http://195.181.210.249:3000/todo/")
       .then(response => response.data)
@@ -23,24 +22,30 @@ class Todo extends React.Component {
         });
       });
   }
+  componentDidMount() {
+    this.getData();
+  }
 
   handleDelete = id => {
     let toDos = this.state.toDos;
     let filteredEl = toDos.filter(el => el.id !== id);
-
+    axios.delete("http://195.181.210.249:3000/todo/" + id, {});
     this.setState({
       toDos: filteredEl
     });
   };
 
   handleAddTodos(newToDos) {
-    let addNewToDos = this.state.toDos;
-    addNewToDos.push(newToDos);
-    axios.post("http://195.181.210.249:3000/todo/", {
-      title: newToDos.title,
-      author: "Areg"
-    });
-    this.setState({ toDos: this.state.toDos });
+    // let addNewToDos = this.state.toDos;
+    // addNewToDos.push(newToDos);
+    axios
+      .post("http://195.181.210.249:3000/todo/", {
+        title: newToDos.title,
+        author: "Areg"
+      })
+      .then(() => this.getData());
+
+    // this.setState({ toDos: this.state.toDos });
   }
 
   handleEdit = (id, newContent) => {
@@ -51,7 +56,7 @@ class Todo extends React.Component {
         return el;
       }
     });
-    axios.patch("http://195.181.210.249:3000/todo/" + id, {
+    axios.put("http://195.181.210.249:3000/todo/" + id, {
       title: newContent
     });
     this.setState({

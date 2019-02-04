@@ -15,6 +15,7 @@ class ListItem extends React.Component {
   };
 
   editItem = () => {
+  
     this.setState({
       isEdited: true
     });
