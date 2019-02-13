@@ -11,6 +11,7 @@ class Todo extends React.Component {
       toDos: toDoData
     };
   }
+
   getData() {
     axios
       .get("http://195.181.210.249:3000/todo/")
